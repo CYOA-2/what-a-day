@@ -1,7 +1,13 @@
+#!/usr/bin/env node
+
 const inquirer = require('inquirer');
-const { getById } = require('./lib/');
+const { getPromptById } = require('./lib/utils/utils.js');
 
 // function startstory:
+async function startStory() {
+  console.log('Welcome to What A Day!');
+  console.clear();
+}
 // arrow function storyLine takes in an id
 // if id = 0, game over
 // else: getpromptsbyId(id)
