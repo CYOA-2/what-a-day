@@ -39,10 +39,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-<<<<<<< HEAD
-=======
     "gradient-string": "^2.0.2",
->>>>>>> 356e9966d19acd6e5c91b90d35b4a3a064868d08
     "inquirer": "^9.1.4",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3"
