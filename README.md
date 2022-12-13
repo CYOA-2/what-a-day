@@ -1,27 +1,37 @@
-# Template for Backend Express
+# **What A Day**
 
-The Golden Rule:
-🦸 🦸‍♂️ Stop starting and start finishing. 🏁
+## **Description**
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+A terminal based choose your own adventure story. The choices you make will determine your day. Choose wisely!
 
-## Scripts
+        terminal command: npx i what-a-day
 
-| command                | description                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`            | starts the app - should only be used in production as changes will not get reloaded |
-| `npm run start:watch`  | runs the app using `nodemon` which watches for changes and reloads the app          |
-| `npm test`             | runs the tests once                                                                 |
-| `npm run test:watch`   | continually watches and runs the tests when files are updated                       |
-| `npm run setup-db`     | sets up the database locally                                                        |
-| `npm run setup-heroku` | sets up the database on heroku                                                      |
+## **About the Project**
 
-## User Routes
+This project was developed in a one week sprint using NodeJs, Inquirer, and SQL. Inquirer provides a user interface in the terminal that allows users to interact with the story, while story data is retrieved from the database using SQL.
 
-| Route                    | HTTP Method | HTTP Body                                                                              | Description                                        |
-| ------------------------ | ----------- | -------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `/api/v1/users/`         | `POST`      | `{email: 'example@test.com', password: '123456', firstName: 'Test', lastName: 'User'}` | Creates new user                                   |
-| `api/v1/users/sessions/` | `POST`      | `{email: 'example@test.com', password: '123456'}`                                      | Signs in existing user                             |
-| `/api/v1/users/me/`      | `GET`       | None                                                                                   | Returns current user                               |
-| `/api/v1/users/`         | `GET`       | None                                                                                   | Authorized endpoint - returns all users for admin. |
-| `api/v1/users/sessions/` | `DELETE`    | None                                                                                   | Deletes a user session                             |
+## **About the Developers**
+
+### | [**Emily Sellers**](https://www.linkedin.com/in/emilymsellers/) |
+
+<img src="./assets/emily.jpg" width="250" height="250" style="object-fit:cover">
+
+Emily is a software developer in Portland, OR. She has a diverse background in family support and mental health nonprofits. Her favorite adventures involve playing in the mountains or on the coast with her two young daughters.
+
+### | [**Morgan Niemeyer**](https://www.linkedin.com/in/morganniemeyer/) |
+
+<img src="./assets/morgan.jpg" width="250" height="250" style="object-fit:cover">
+
+Morgan is a fullstack developer from Minneapolis, MN. She has a long background including over a decade in event management. Her favorite adventures tend to be more indoors based with conventions, video games, and well made food.
+
+### | [**Lexus Banton**](https://www.linkedin.com/in/lexcancode/) |
+
+<img src="./assets/lex.jpg" width="250" height="250" style="object-fit:cover">
+
+Lexus is a software developer based in Wilmington, DE. Her favorite Adventures involve pretty sights, great food, and travel, preferably far from home.
+
+### | [**Andrew Boyle**](https://www.linkedin.com/in/andrewjamesboyle/) |
+
+<img src="./assets/andrew.jpg" width="250" height="250" style="object-fit:cover">
+
+Andrew is a full-stack software developer based in Hood River, OR. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
