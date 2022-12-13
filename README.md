@@ -1,27 +1,21 @@
-# Template for Backend Express
+# ** What A Day **
 
-The Golden Rule:
-🦸 🦸‍♂️ Stop starting and start finishing. 🏁
+## ** Description **
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+A terminal based choose your own adventure story. The choices you make will determine your day. Choose wisely!
 
-## Scripts
+        terminal command: npm i  what-a-day
 
-| command                | description                                                                         |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`            | starts the app - should only be used in production as changes will not get reloaded |
-| `npm run start:watch`  | runs the app using `nodemon` which watches for changes and reloads the app          |
-| `npm test`             | runs the tests once                                                                 |
-| `npm run test:watch`   | continually watches and runs the tests when files are updated                       |
-| `npm run setup-db`     | sets up the database locally                                                        |
-| `npm run setup-heroku` | sets up the database on heroku                                                      |
+## ** About the Project **
 
-## User Routes
+This project was developed in a one week sprint using NodeJs, Inquirer, and SQL. Inquirer provides a user interface in the terminal that allows users to interact with the story, while story data is retrieved from the database using SQL.
 
-| Route                    | HTTP Method | HTTP Body                                                                              | Description                                        |
-| ------------------------ | ----------- | -------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `/api/v1/users/`         | `POST`      | `{email: 'example@test.com', password: '123456', firstName: 'Test', lastName: 'User'}` | Creates new user                                   |
-| `api/v1/users/sessions/` | `POST`      | `{email: 'example@test.com', password: '123456'}`                                      | Signs in existing user                             |
-| `/api/v1/users/me/`      | `GET`       | None                                                                                   | Returns current user                               |
-| `/api/v1/users/`         | `GET`       | None                                                                                   | Authorized endpoint - returns all users for admin. |
-| `api/v1/users/sessions/` | `DELETE`    | None                                                                                   | Deletes a user session                             |
+## ** About the Developers **
+
+### | [**Emily Sellers**](https://www.linkedin.com/in/emilymsellers/) |
+
+### | [**Morgan Niemeyer**](https://www.linkedin.com/in/morganniemeyer/) |
+
+### | [**Lexus Banton**](https://www.linkedin.com/in/lexcancode/) |
+
+### | [**Andrew Boyle**](https://www.linkedin.com/in/andrewjamesboyle/) |
