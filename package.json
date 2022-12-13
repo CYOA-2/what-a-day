@@ -2,7 +2,7 @@
   "name": "backend-express-template",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config --passWithNoTests",
@@ -37,10 +37,11 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "gradient-string": "^2.0.2",
-    "inquirer": "^9.1.4",
+    "inquirer": "^8.2.5",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3"
   }
