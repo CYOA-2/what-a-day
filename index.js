@@ -2,14 +2,16 @@
 /* eslint-disable no-console */
 
 require('dotenv').config();
+const inquirer = require('inquirer');
+const Prompt = require('./lib/models/Prompt.js');
 //const inquirer = require('inquirer');
-const { getPromptById } = require('./lib/utils/utils.js');
+//const { getPromptById } = require('./lib/utils/utils.js');
 const sleep = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
 
 // function startstory:
 async function startStory() {
   console.log('Welcome to What A Day!');
-  await sleep();
+  //await sleep();
   //console.clear();
   return storyLine(1);
 }
@@ -23,10 +25,20 @@ const storyLine = async (id = 1) => {
     );
   }
   // else: getpromptsbyId(id)
-  const story = await getPromptById(id);
-  console.log('Potato', story);
+  //const story = await getPromptById(id);
+  // store and destructure properties of prompts
+  const { story, promptA, promptB, aId, bId } = await Prompt.getById(id);
+
+  console.log(promptA);
+  // return inquirer.prompt?
+  const options = await inquirer.prompt([
+    {
+      name: 'options',
+      type: 'list',
+      choices: [promptA, promptB],
+    },
+  ]);
+  console.log(options);
 };
 
-// store and destructure properties of prompts
-// return inquirer.prompt?
 startStory();
