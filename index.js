@@ -18,7 +18,7 @@ async function startStory() {
 // arrow function storyLine takes in an id
 const storyLine = async (id = 1) => {
   // if id = 0, game over
-  if (id === 0) {
+  if (id === 35) {
     console.log('Thanks for playing!');
     console.log(
       'Developed By: Andrew Boyle, Emily Sellers, Lexus Banton, Morgan Niemeyer'
@@ -29,7 +29,7 @@ const storyLine = async (id = 1) => {
   // store and destructure properties of prompts
   const { story, promptA, promptB, aId, bId } = await Prompt.getById(id);
 
-  console.log(promptA);
+  console.log(story);
   // return inquirer.prompt?
   const options = await inquirer.prompt([
     {
@@ -38,7 +38,14 @@ const storyLine = async (id = 1) => {
       choices: [promptA, promptB],
     },
   ]);
-  console.log(options);
+  // console.log(options);
+  if (options.options === promptA) {
+    console.clear();
+    return storyLine(aId);
+  } if (options.options === promptB) {
+    console.clear();
+    return storyLine(bId);
+  }
 };
 
 startStory();
