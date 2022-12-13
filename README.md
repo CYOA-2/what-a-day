@@ -30,5 +30,4 @@ Emily is a software developer in Portland, OR. She has a diverse background in f
 
 <img src="./assets/andrew.jpg" width="250" height="250" style="object-fit:cover">
 
-Andrew is a full-stack software engineer based in Hood River, OR. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
-
+Andrew is a full-stack software dev based in Hood River, OR. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
