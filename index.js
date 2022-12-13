@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 const Prompt = require('./lib/models/Prompt.js');
 //const inquirer = require('inquirer');
 //const { getPromptById } = require('./lib/utils/utils.js');
-const sleep = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+// const sleep = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
 
 // function startstory:
 async function startStory() {
