@@ -23,6 +23,7 @@ const storyLine = async (id = 1) => {
     console.log(
       'Developed By: Andrew Boyle, Emily Sellers, Lexus Banton, Morgan Niemeyer'
     );
+    return endStory();
   }
   // else: getpromptsbyId(id)
   //const story = await getPromptById(id);
@@ -42,10 +43,21 @@ const storyLine = async (id = 1) => {
   if (options.options === promptA) {
     console.clear();
     return storyLine(aId);
-  } if (options.options === promptB) {
+  }
+  if (options.options === promptB) {
     console.clear();
     return storyLine(bId);
   }
 };
+
+async function endStory() {
+  (err) => {
+    if (err) {
+      console.log('Something went wrong...');
+      console.log(err);
+      return;
+    }
+  };
+}
 
 startStory();
