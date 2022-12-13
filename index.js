@@ -18,7 +18,7 @@ async function startStory() {
 // arrow function storyLine takes in an id
 const storyLine = async (id = 1) => {
   // if id = 0, game over
-  if (id === 35) {
+  if (id === 0) {
     console.log('Thanks for playing!');
     console.log(
       'Developed By: Andrew Boyle, Emily Sellers, Lexus Banton, Morgan Niemeyer'
