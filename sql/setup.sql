@@ -42,7 +42,6 @@ VALUES
 (18, 'nukes', 'new day', 'exit', 1, 0),
 (19, 'aliens', 'new day', 'exit', 1, 0),
 (20, 'email', 'utopia?', 'no more ozone', 27, 28),
-(21, null, null, null, null, null),
 (22, 'front yard', 'new day', 'exit', 1, 0),
 (23, 'back yard', 'hike', 'hammock', 24, 29),
 (24, 'hike', 'new day', 'exit', 1, 0),
