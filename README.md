@@ -22,12 +22,16 @@ Emily is a software developer in Portland, OR. She has a diverse background in f
 
 <img src="./assets/morgan.jpg" width="250" height="250" style="object-fit:cover">
 
+Morgan is a software developer based in Minneapolis, MN.
+
 ### | [**Lexus Banton**](https://www.linkedin.com/in/lexcancode/) |
 
 <img src="./assets/lex.jpg" width="250" height="250" style="object-fit:cover">
+
+Lexus is a software developer based in Oakland, CA.
 
 ### | [**Andrew Boyle**](https://www.linkedin.com/in/andrewjamesboyle/) |
 
 <img src="./assets/andrew.jpg" width="250" height="250" style="object-fit:cover">
 
-Andrew is a full-stack software dev based in Hood River, OR. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
+Andrew is a full-stack software developer based in Hood River, OR. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
