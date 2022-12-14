@@ -3,9 +3,6 @@
 
 require('dotenv').config();
 const inquirer = require('inquirer');
-const Prompt = require('./lib/models/Prompt.js');
-const User = require('./lib/models/User.js');
-const UserService = require('./lib/services/UserService.js');
 const { signIn, signUp, getPromptById, updateUser } = require('./lib/utils/utils.js');
 
 async function startStory() {
