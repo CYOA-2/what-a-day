@@ -4,6 +4,7 @@
 require('dotenv').config();
 const inquirer = require('inquirer');
 const Prompt = require('./lib/models/Prompt.js');
+const User = require('./lib/models/User.js');
 const UserService = require('./lib/services/UserService.js');
 //const inquirer = require('inquirer');
 //const { getPromptById } = require('./lib/utils/utils.js');
@@ -34,6 +35,9 @@ async function startStory() {
       },
     ]);
     await UserService.signIn(user);
+    const { characterName, currentStoryId } = await User.getByEmail(user.email);
+    console.log(`Welcome back ${characterName}`);
+    return storyLine(currentStoryId);
   } else {
     const user = await inquirer.prompt([
       {
@@ -56,6 +60,7 @@ async function startStory() {
 
     await UserService.create(user);
     await UserService.signIn(user);
+    console.log(`Welcome ${user.characterName}`);
   }
   //welcome character
   //await sleep();
