@@ -102,4 +102,21 @@ describe('user routes', () => {
     const resp = await agent.delete('/api/v1/users/sessions');
     expect(resp.status).toBe(204);
   });
+
+  it('PUT /users/1 should update a user', async () => {
+    const [agent] = await registerAndLogin();
+    const resp = await agent.put('/api/v1/users/1').send({ currentStoryId: 1 });
+    expect(resp.status).toBe(200);
+  });
+
+  it('PUT /users/1 should return a 403 if not authorized', async () => {
+    const [agent] = await registerAndLogin();
+    const resp = await agent.put('/api/v1/users/2').send({ currentStoryId: 1 });
+    expect(resp.status).toBe(403);
+  });
+
+  it('PUT /users/1 should return a 401 if not authenticated', async () => {
+    const resp = await request(app).put('/api/v1/users/1').send({ currentStoryId: 1 });
+    expect(resp.status).toBe(401);
+  });
 });

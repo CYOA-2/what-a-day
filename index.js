@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 const Prompt = require('./lib/models/Prompt.js');
 const User = require('./lib/models/User.js');
 const UserService = require('./lib/services/UserService.js');
-const { signIn, signUp, getPromptById } = require('./lib/utils/utils.js');
+const { signIn, signUp, getPromptById, updateUser } = require('./lib/utils/utils.js');
 
 async function startStory() {
   let user, cookie;
@@ -69,8 +69,9 @@ async function startStory() {
         message: 'Enter your password',
       },
     ]);
-
+    
     [user, cookie] = await signUp(userData);
+    console.log('cookie', cookie);
     console.log(`Welcome ${user.characterName}`);
     return storyLine(1, { user }, cookie);
   }
@@ -96,18 +97,18 @@ const storyLine = async (id, { user }, cookie) => {
   if (options.options === promptA) {
     console.clear();
     const currentStoryId = aId;
-    await User.update({ user }, currentStoryId);
-    return storyLine(aId, { user });
+    await updateUser(user.id, currentStoryId, cookie);
+    return storyLine(aId, { user }, cookie);
   }
   if (options.options === promptB) {
     console.clear();
     const currentStoryId = bId;
-    await User.update({ user }, currentStoryId);
-    return storyLine(bId, { user });
+    await updateUser(user.id, currentStoryId, cookie);
+    return storyLine(bId, { user }, cookie);
   }
   if (options.options === bailout) {
     console.clear();
-    return storyLine(bailId, { user });
+    return storyLine(bailId, { user }, cookie);
   }
 };
 
