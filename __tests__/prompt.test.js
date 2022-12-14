@@ -18,6 +18,8 @@ describe('prompt route', () => {
       Object {
         "aId": 2,
         "bId": 3,
+        "bailId": 0,
+        "bailout": "save my game",
         "id": "1",
         "promptA": "I am going to stay home and handle the plumber visit.",
         "promptB": "I am heading to work, my partner handles things like this for us.",
