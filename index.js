@@ -4,6 +4,7 @@
 require('dotenv').config();
 const inquirer = require('inquirer');
 const Prompt = require('./lib/models/Prompt.js');
+const UserService = require('./lib/services/UserService.js');
 //const inquirer = require('inquirer');
 //const { getPromptById } = require('./lib/utils/utils.js');
 // const sleep = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
@@ -11,6 +12,38 @@ const Prompt = require('./lib/models/Prompt.js');
 // function startstory:
 async function startStory() {
   console.log('Welcome to What A Day!');
+  const user = await inquirer.prompt([
+    {
+      prefix: '*',
+      name: 'characterName',
+      message: 'Create a character name',
+    },
+    // {
+    //   prefix: '*',
+    //   name: 'firstName',
+    //   message: 'Enter your first name',
+    // },
+    // {
+    //   prefix: '*',
+    //   name: 'lastName',
+    //   message: 'Enter your last name',
+    // },
+    {
+      prefix: '*',
+      name: 'email',
+      message: 'Enter your email',
+    },
+    {
+      prefix: '*',
+      name: 'password',
+      type: 'password',
+      message: 'Enter your password',
+    },
+  ]);
+
+  await UserService.create(user);
+  await UserService.signIn(user);
+  //welcome character
   //await sleep();
   //console.clear();
   return storyLine(1);
