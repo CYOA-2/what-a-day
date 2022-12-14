@@ -12,27 +12,51 @@ const UserService = require('./lib/services/UserService.js');
 // function startstory:
 async function startStory() {
   console.log('Welcome to What A Day!');
-  const user = await inquirer.prompt([
+  const existingUser = await inquirer.prompt([
     {
-      prefix: '*',
-      name: 'characterName',
-      message: 'Create a character name',
-    },
-    {
-      prefix: '*',
-      name: 'email',
-      message: 'Enter your email',
-    },
-    {
-      prefix: '*',
-      name: 'password',
-      type: 'password',
-      message: 'Enter your password',
-    },
+      name: 'auth',
+      type: 'confirm',
+      message: 'Have an account?'
+    }
   ]);
+  if (existingUser.auth === true) {
+    const user = await inquirer.prompt([
+      {
+        prefix: '*',
+        name: 'email',
+        message: 'Enter your email',
+      },
+      {
+        prefix: '*',
+        name: 'password',
+        type: 'password',
+        message: 'Enter your password',
+      },
+    ]);
+    await UserService.signIn(user);
+  } else {
+    const user = await inquirer.prompt([
+      {
+        prefix: '*',
+        name: 'characterName',
+        message: 'Create a character name',
+      },
+      {
+        prefix: '*',
+        name: 'email',
+        message: 'Enter your email',
+      },
+      {
+        prefix: '*',
+        name: 'password',
+        type: 'password',
+        message: 'Enter your password',
+      },
+    ]);
 
-  await UserService.create(user);
-  await UserService.signIn(user);
+    await UserService.create(user);
+    await UserService.signIn(user);
+  }
   //welcome character
   //await sleep();
   //console.clear();
@@ -52,7 +76,6 @@ const storyLine = async (id = 1) => {
   //const story = await getPromptById(id);
   // store and destructure properties of prompts
   const { story, promptA, promptB, bailout, aId, bId, bailId } = await Prompt.getById(id);
-  console.log('bailout', bailout);
 
   console.log(story);
   // return inquirer.prompt?
