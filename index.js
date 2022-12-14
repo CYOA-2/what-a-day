@@ -3,11 +3,10 @@
 
 require('dotenv').config();
 const inquirer = require('inquirer');
-const Prompt = require('./lib/models/Prompt.js');
-const User = require('./lib/models/User.js');
-const UserService = require('./lib/services/UserService.js');
+const { signIn, signUp, getPromptById, updateUser } = require('./lib/utils/utils.js');
 
 async function startStory() {
+  let user, cookie;
   console.log('Welcome to What A Day!');
   const existingUser = await inquirer.prompt([
     {
@@ -17,7 +16,7 @@ async function startStory() {
     },
   ]);
   if (existingUser.auth === true) {
-    const user = await inquirer.prompt([
+    const inputs = await inquirer.prompt([
       {
         prefix: '*',
         name: 'email',
@@ -30,8 +29,8 @@ async function startStory() {
         message: 'Enter your password',
       },
     ]);
-    await UserService.signIn(user);
-    const { characterName, currentStoryId } = await User.getByEmail(user.email);
+    [user, cookie] = await signIn(inputs);
+    const { characterName, currentStoryId } = user;
     console.log(`Welcome back ${characterName}`);
 
     const userPickup = await inquirer.prompt([
@@ -43,13 +42,13 @@ async function startStory() {
     ]);
     if (userPickup.pickup === true) {
       const id = currentStoryId;
-      return storyLine(id, { user });
+      return storyLine(id, { user }, cookie);
     } else {
       const id = 1;
-      return storyLine(id, { user });
+      return storyLine(id, { user }, cookie);
     }
   } else {
-    const user = await inquirer.prompt([
+    const userData = await inquirer.prompt([
       {
         prefix: '*',
         name: 'characterName',
@@ -67,14 +66,13 @@ async function startStory() {
         message: 'Enter your password',
       },
     ]);
-
-    await UserService.create(user);
-    await UserService.signIn(user);
+    
+    [user, cookie] = await signUp(userData);
     console.log(`Welcome ${user.characterName}`);
-    return storyLine(1, { user });
+    return storyLine(1, { user }, cookie);
   }
 }
-const storyLine = async (id, { user }) => {
+const storyLine = async (id, { user }, cookie) => {
   if (id === 0) {
     console.log('Thanks for playing!');
     console.log(
@@ -83,7 +81,7 @@ const storyLine = async (id, { user }) => {
     return endStory();
   }
   const { story, promptA, promptB, bailout, aId, bId, bailId } =
-    await Prompt.getById(id);
+    await getPromptById(id, cookie);
   console.log(story);
   const options = await inquirer.prompt([
     {
@@ -95,18 +93,18 @@ const storyLine = async (id, { user }) => {
   if (options.options === promptA) {
     console.clear();
     const currentStoryId = aId;
-    await User.update({ user }, currentStoryId);
-    return storyLine(aId, { user });
+    await updateUser(user.id, currentStoryId, cookie);
+    return storyLine(aId, { user }, cookie);
   }
   if (options.options === promptB) {
     console.clear();
     const currentStoryId = bId;
-    await User.update({ user }, currentStoryId);
-    return storyLine(bId, { user });
+    await updateUser(user.id, currentStoryId, cookie);
+    return storyLine(bId, { user }, cookie);
   }
   if (options.options === bailout) {
     console.clear();
-    return storyLine(bailId, { user });
+    return storyLine(bailId, { user }, cookie);
   }
 };
 
