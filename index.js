@@ -18,16 +18,6 @@ async function startStory() {
       name: 'characterName',
       message: 'Create a character name',
     },
-    // {
-    //   prefix: '*',
-    //   name: 'firstName',
-    //   message: 'Enter your first name',
-    // },
-    // {
-    //   prefix: '*',
-    //   name: 'lastName',
-    //   message: 'Enter your last name',
-    // },
     {
       prefix: '*',
       name: 'email',
@@ -61,7 +51,8 @@ const storyLine = async (id = 1) => {
   // else: getpromptsbyId(id)
   //const story = await getPromptById(id);
   // store and destructure properties of prompts
-  const { story, promptA, promptB, aId, bId } = await Prompt.getById(id);
+  const { story, promptA, promptB, bailout, aId, bId, bailId } = await Prompt.getById(id);
+  console.log('bailout', bailout);
 
   console.log(story);
   // return inquirer.prompt?
@@ -69,7 +60,7 @@ const storyLine = async (id = 1) => {
     {
       name: 'options',
       type: 'list',
-      choices: [promptA, promptB],
+      choices: [promptA, promptB, bailout],
     },
   ]);
   // console.log(options);
@@ -80,6 +71,10 @@ const storyLine = async (id = 1) => {
   if (options.options === promptB) {
     console.clear();
     return storyLine(bId);
+  }
+  if (options.options === bailout) {
+    console.clear();
+    return storyLine(bailId);
   }
 };
 
