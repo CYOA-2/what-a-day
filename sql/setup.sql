@@ -22,7 +22,7 @@ CREATE TABLE prompts (
   bail_id INT
 );
 
-INSERT INTO prompts (id, story, prompt_a, prompt_b, a_id, b_id) 
+INSERT INTO prompts (id, story, prompt_a, prompt_b, bailout, a_id, b_id, bail_id) 
 VALUES 
 (1, 'Good morning and what another sunny day. You have had a filling breakfast, a nice morning with your family and are about to get ready for work when... What is that sound? You rush to the bathroom and your toilet is gushing water everywhere! You quickly get the water turned off and the rush subsides before finally stopping. What do you do from here?', 'I am going to stay home and handle the plumber visit.', 'I am heading to work, my partner handles things like this for us.', 'save my game', 2, 3, 0),
 (2, 'After choosing home you call the plumber. They say you are on the roster, but it will be a few hours. How will you occupy the meantime?', 'My team at work relies on me, I have the option, I am going to work from home.', 'My team can survive without me, I am going to stay off the computer.', 'save my game', 7, 6, 0),
@@ -51,7 +51,7 @@ VALUES
 (25, 'snack', 'ice cream', 'grilled cheese', 'save my game', 32, 33, 0),
 (26, 'answer', 'email', 'news', 'save my game', 20, 10, 0),
 (27, 'utopia?', 'go back 1', 'new day', 'exit', 20, 1, 0),
-(28, 'no more ozone', 'new day', 'exit', 20, 1, 0),
+(28, 'no more ozone', 'go back 1', 'new day', 'exit', 20, 1, 0),
 (29, 'hammock', 'awake', 'asleep', 'save my game', 34, 30, 0),
 (30, 'reschedule', 'go back 1', 'new day', 'exit', 29, 1, 0),
 (31, 'u bend', 'go back 1', 'new day', 'exit', 32, 1, 0),
