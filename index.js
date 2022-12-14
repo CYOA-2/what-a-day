@@ -68,7 +68,6 @@ async function startStory() {
     ]);
     
     [user, cookie] = await signUp(userData);
-    console.log('cookie', cookie);
     console.log(`Welcome ${user.characterName}`);
     return storyLine(1, { user }, cookie);
   }
