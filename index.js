@@ -15,14 +15,19 @@ async function startStory() {
   const user = await inquirer.prompt([
     {
       prefix: '*',
-      name: 'firstName',
-      message: 'Enter your first name',
+      name: 'characterName',
+      message: 'Create a character name',
     },
-    {
-      prefix: '*',
-      name: 'lastName',
-      message: 'Enter your last name',
-    },
+    // {
+    //   prefix: '*',
+    //   name: 'firstName',
+    //   message: 'Enter your first name',
+    // },
+    // {
+    //   prefix: '*',
+    //   name: 'lastName',
+    //   message: 'Enter your last name',
+    // },
     {
       prefix: '*',
       name: 'email',
@@ -38,6 +43,7 @@ async function startStory() {
 
   await UserService.create(user);
   await UserService.signIn(user);
+  //welcome character
   //await sleep();
   //console.clear();
   return storyLine(1);
