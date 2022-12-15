@@ -81,7 +81,7 @@ const storyLine = async (id, { user }, cookie) => {
   if (id === 0) {
     console.log('Thanks for playing!');
     console.log(
-      'Developed By: Andrew Boyle, Emily Sellers, Morgan Niemeyer'
+      'Developed By: Andrew Boyle, Emily Sellers, Morgan Niemeyer, Lexus Banton'
     );
     return endStory();
   }

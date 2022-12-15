@@ -16,7 +16,7 @@
     "testEnvironment": "node"
   },
   "keywords": [],
-  "author": "Andrew Boyle, Emily Sellers, Morgan Niemeyer",
+  "author": "Andrew Boyle, Emily Sellers, Morgan Niemeyer, Lexus Banton",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.2",

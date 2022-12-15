@@ -29,3 +29,9 @@ Morgan is a fullstack developer from Minneapolis, MN. She has a long background 
 <img src="./assets/andrew.jpg" width="250" height="250" style="object-fit:cover">
 
 Andrew is a full-stack software developer based in Hood River, OR. He has a diverse background in music and marketing. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
+
+### | [**Lexus Banton**](https://www.linkedin.com/in/lexcancode/) |
+
+<img src="./assets/lex.jpg" width="250" height="250" style="object-fit:cover">
+
+Lexus is a software developer based in Wilmington, DE. Her favorite Adventures involve pretty sights, great food, and travel, preferably far from home.
