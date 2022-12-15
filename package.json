@@ -1,7 +1,7 @@
 {
-  "name": "backend-express-template",
+  "name": "what-a-day",
   "version": "1.0.0",
-  "description": "",
+  "description": "a choose your own adventure story",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -16,7 +16,7 @@
     "testEnvironment": "node"
   },
   "keywords": [],
-  "author": "",
+  "author": "Andrew Boyle, Emily Sellers, Morgan Niemeyer",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.2",
@@ -34,6 +34,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "chalk": "^5.2.0",
+    "cookie": "^0.5.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",

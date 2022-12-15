@@ -6,8 +6,7 @@ const UserService = require('../lib/services/UserService');
 
 // Dummy user for testing
 const mockUser = {
-  firstName: 'Test',
-  lastName: 'User',
+  characterName: 'test',
   email: 'test@example.com',
   password: '12345',
 };
@@ -28,7 +27,7 @@ const registerAndLogin = async (userProps = {}) => {
   return [agent, user];
 };
 
-describe.skip('user routes', () => {
+describe('user routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -38,12 +37,12 @@ describe.skip('user routes', () => {
 
   it('creates a new user', async () => {
     const res = await request(app).post('/api/v1/users').send(mockUser);
-    const { firstName, lastName, email } = mockUser;
+    const { characterName, email } = mockUser;
 
     expect(res.body).toEqual({
       id: expect.any(String),
-      firstName,
-      lastName,
+      characterName,
+      currentStoryId: 1,
       email,
     });
   });
@@ -80,8 +79,7 @@ describe.skip('user routes', () => {
     await agent.post('/api/v1/users').send({
       email: 'admin',
       password: '1234',
-      firstName: 'admin',
-      lastName: 'admin',
+      characterName: 'admin'
     });
     // sign in the user
     await agent
@@ -103,5 +101,22 @@ describe.skip('user routes', () => {
     const [agent] = await registerAndLogin();
     const resp = await agent.delete('/api/v1/users/sessions');
     expect(resp.status).toBe(204);
+  });
+
+  it('PUT /users/1 should update a user', async () => {
+    const [agent] = await registerAndLogin();
+    const resp = await agent.put('/api/v1/users/1').send({ currentStoryId: 1 });
+    expect(resp.status).toBe(200);
+  });
+
+  it('PUT /users/1 should return a 403 if not authorized', async () => {
+    const [agent] = await registerAndLogin();
+    const resp = await agent.put('/api/v1/users/2').send({ currentStoryId: 1 });
+    expect(resp.status).toBe(403);
+  });
+
+  it('PUT /users/1 should return a 401 if not authenticated', async () => {
+    const resp = await request(app).put('/api/v1/users/1').send({ currentStoryId: 1 });
+    expect(resp.status).toBe(401);
   });
 });

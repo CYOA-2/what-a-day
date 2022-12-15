@@ -8,7 +8,7 @@ A terminal based choose your own adventure story. The choices you make will dete
 
 ## **About the Project**
 
-This project was developed in a one week sprint using NodeJs, Inquirer, and SQL. Inquirer provides a user interface in the terminal that allows users to interact with the story, while story data is retrieved from the database using SQL.
+This project was developed in a one week sprint using NodeJs, Express, Inquirer, and SQL. Inquirer provides a user interface in the terminal that allows users to interact with the story, while story data is retrieved using API calls to the database deployed on Heroku using Express and SQL. The API uses RESTful CRUD routes to handle user requests and interact with the database.
 
 ## **About the Developers**
 
@@ -24,14 +24,8 @@ Emily is a software developer in Portland, OR. She has a diverse background in f
 
 Morgan is a fullstack developer from Minneapolis, MN. She has a long background including over a decade in event management. Her favorite adventures tend to be more indoors based with conventions, video games, and well made food.
 
-### | [**Lexus Banton**](https://www.linkedin.com/in/lexcancode/) |
-
-<img src="./assets/lex.jpg" width="250" height="250" style="object-fit:cover">
-
-Lexus is a software developer based in Wilmington, DE. Her favorite Adventures involve pretty sights, great food, and travel, preferably far from home.
-
 ### | [**Andrew Boyle**](https://www.linkedin.com/in/andrewjamesboyle/) |
 
 <img src="./assets/andrew.jpg" width="250" height="250" style="object-fit:cover">
 
-Andrew is a full-stack software developer based in Hood River, OR. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
+Andrew is a full-stack software developer based in Hood River, OR. He has a diverse background in music and marketing. His favorite adventures usually include some combination of mountains, bikes, and his 1 year old daughter.
