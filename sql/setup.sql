@@ -8,7 +8,7 @@ CREATE TABLE users (
   email VARCHAR,
   password_hash VARCHAR NOT NULL,
   character_name VARCHAR NOT NULL,
-  current_story_id INT
+  current_story_id INT DEFAULT 1
 );
 
 CREATE TABLE prompts (

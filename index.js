@@ -88,7 +88,6 @@ const storyLine = async (id, { user }, cookie) => {
   const { story, promptA, promptB, bailout, aId, bId, bailId } =
     await getPromptById(id, cookie);
   console.log(story);
-  console.log('current story user', user);
   const options = await inquirer.prompt([
     {
       name: 'options',
@@ -97,19 +96,19 @@ const storyLine = async (id, { user }, cookie) => {
     },
   ]);
   if (options.options === promptA) {
-    // console.clear();
+    console.clear();
     const currentStoryId = aId;
     await updateUser({ user }, currentStoryId, cookie);
     return storyLine(aId, { user }, cookie);
   }
   if (options.options === promptB) {
-    // console.clear();
+    console.clear();
     const currentStoryId = bId;
     await updateUser({ user }, currentStoryId, cookie);
     return storyLine(bId, { user }, cookie);
   }
   if (options.options === bailout) {
-    // console.clear();
+    console.clear();
     return storyLine(bailId, { user }, cookie);
   }
 };
