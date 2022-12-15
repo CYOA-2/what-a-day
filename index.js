@@ -3,7 +3,12 @@
 
 require('dotenv').config();
 const inquirer = require('inquirer');
-const { signIn, signUp, getPromptById, updateUser } = require('./lib/utils/utils.js');
+const {
+  signIn,
+  signUp,
+  getPromptById,
+  updateUser
+} = require('./lib/utils/utils.js');
 
 async function startStory() {
   let user, cookie;
@@ -31,7 +36,7 @@ async function startStory() {
     ]);
     [user, cookie] = await signIn(inputs);
     const { characterName, currentStoryId } = user;
-    console.log(`Welcome back ${characterName}`);
+    console.log(`Welcome back ${characterName}!`);
 
     const userPickup = await inquirer.prompt([
       {
@@ -66,9 +71,9 @@ async function startStory() {
         message: 'Enter your password',
       },
     ]);
-    
+
     [user, cookie] = await signUp(userData);
-    console.log(`Welcome ${user.characterName}`);
+    console.log(`Welcome ${user.characterName}!`);
     return storyLine(1, { user }, cookie);
   }
 }
@@ -76,7 +81,7 @@ const storyLine = async (id, { user }, cookie) => {
   if (id === 0) {
     console.log('Thanks for playing!');
     console.log(
-      'Developed By: Andrew Boyle, Emily Sellers, Lexus Banton, Morgan Niemeyer'
+      'Developed By: Andrew Boyle, Emily Sellers, Morgan Niemeyer'
     );
     return endStory();
   }
@@ -93,13 +98,13 @@ const storyLine = async (id, { user }, cookie) => {
   if (options.options === promptA) {
     console.clear();
     const currentStoryId = aId;
-    await updateUser(user.id, currentStoryId, cookie);
+    await updateUser({ user }, currentStoryId, cookie);
     return storyLine(aId, { user }, cookie);
   }
   if (options.options === promptB) {
     console.clear();
     const currentStoryId = bId;
-    await updateUser(user.id, currentStoryId, cookie);
+    await updateUser({ user }, currentStoryId, cookie);
     return storyLine(bId, { user }, cookie);
   }
   if (options.options === bailout) {
