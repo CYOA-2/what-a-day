@@ -42,7 +42,7 @@ describe('user routes', () => {
     expect(res.body).toEqual({
       id: expect.any(String),
       characterName,
-      currentStoryId: null,
+      currentStoryId: 1,
       email,
     });
   });
