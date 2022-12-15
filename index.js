@@ -3,7 +3,12 @@
 
 require('dotenv').config();
 const inquirer = require('inquirer');
-const { signIn, signUp, getPromptById, updateUser } = require('./lib/utils/utils.js');
+const {
+  signIn,
+  signUp,
+  getPromptById,
+  updateUser,
+} = require('./lib/utils/utils.js');
 
 async function startStory() {
   let user, cookie;
@@ -31,7 +36,7 @@ async function startStory() {
     ]);
     [user, cookie] = await signIn(inputs);
     const { characterName, currentStoryId } = user;
-    console.log(`Welcome back ${characterName}`);
+    console.log(`Welcome back ${characterName}!`);
 
     const userPickup = await inquirer.prompt([
       {
@@ -66,9 +71,9 @@ async function startStory() {
         message: 'Enter your password',
       },
     ]);
-    
+
     [user, cookie] = await signUp(userData);
-    console.log(`Welcome ${user.characterName}`);
+    console.log(`Welcome ${user.characterName}!`);
     return storyLine(1, { user }, cookie);
   }
 }
