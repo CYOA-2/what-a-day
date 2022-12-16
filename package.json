@@ -1,6 +1,6 @@
 {
   "name": "what-a-day",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a choose your own adventure story",
   "main": "index.js",
   "type": "commonjs",
