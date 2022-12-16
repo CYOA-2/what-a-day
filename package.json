@@ -1,9 +1,10 @@
 {
   "name": "what-a-day",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a choose your own adventure story",
   "main": "index.js",
   "type": "commonjs",
+  "bin": "index.js",
   "scripts": {
     "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config --passWithNoTests",
     "test:watch": "npm run test -- --watch",
