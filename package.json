@@ -46,5 +46,9 @@
     "inquirer": "^8.2.5",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CYOA-2/what-a-day"
   }
 }

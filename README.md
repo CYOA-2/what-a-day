@@ -4,7 +4,7 @@
 
 A terminal based choose your own adventure story. The choices you make will determine your day. Choose wisely!
 
-        terminal command: npx i what-a-day
+        terminal command: npx what-a-day
 
 ## **About the Project**
 
